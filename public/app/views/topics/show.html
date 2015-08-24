@@ -6,17 +6,17 @@
   {{aihe.description}}
 </p>
 
-<h2>1 viesti</h2>
+<h2>{{aihe.Messages.length}} <span ng-pluralize count="aihe.Messages.length" when="{ '0': ' viestiä', 'one': ' viesti', 'other': ' viestiä' }"></span></h2>
 
-<ul class="media-list">
+<ul class="media-list" ng-repeat="viesti in aihe.Messages">
   <li class="media">
     <div class="media-body">
       <h4 class="media-heading">
-        <a href="#/messages/1">Viestin otsikko</a>
+        <a href="#/messages/{{viesti.id}}">{{viesti.title}}</a>
       </h4>
 
       <p>
-        Viestin sisältö
+        {{viesti.content}}
       </p>
 
       <p class="text-muted">
@@ -31,12 +31,12 @@
 <form>
   <div class="form-group">
     <label>Otsikko</label>
-    <input type="text" class="form-control">
+    <input type="text" class="form-control" ng-model="newTitle">
   </div>
 
   <div class="form-group">
     <label>Viesti</label>
-    <textarea class="form-control"></textarea>
+    <textarea class="form-control" ng-model="newContent"></textarea>
   </div>
-  <button class="btn btn-success">Lisää viesti</button>
+    <button class="btn btn-success" ng-click="addMessage()">Lisää viesti</button>
 </form>
