@@ -1,9 +1,9 @@
 <div class="page-header">
-  <h1>Aihealueen nimi tähän</h1>
+  <h1>{{aihe.name}}</h1>
 </div>
 
 <p>
-  Aihealueen kuvaus tähän
+  {{aihe.description}}
 </p>
 
 <h2>1 viesti</h2>
@@ -20,7 +20,7 @@
       </p>
 
       <p class="text-muted">
-        Käyttäjätunnus tähän, 1.1.2015 12:00
+        Käyttäjätunnus tähän, {{aihe.createdAt | date:'dd.MM.yyyy HH:mm:ss'}}
       </p>
     </div>
   </li>
