@@ -1,4 +1,5 @@
 FoorumApp.controller('ShowTopicController', function ($scope, $routeParams, $location, Api) {
+    
     $scope.newTitle = "";
     $scope.newContent = "";
     
@@ -11,7 +12,7 @@ FoorumApp.controller('ShowTopicController', function ($scope, $routeParams, $loc
             });
 
     $scope.addMessage = function () {
-        Api.addMessage({"title": $scope.newTitle, "content": $scope.newContent}, $scope.aihe.id).
+        Api.addMessage({title: $scope.newTitle, content: $scope.newContent}, $scope.aihe.id).
                 success(function (data, status, headers, config) {
                     $location.path('/messages/' + data.id);
                 })

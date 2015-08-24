@@ -20,15 +20,15 @@
       </p>
 
       <p class="text-muted">
-        Käyttäjätunnus tähän, {{aihe.createdAt | date:'dd.MM.yyyy HH:mm:ss'}}
+        {{viesti.User.username}}, {{viesti.createdAt | date:'dd.MM.yyyy HH:mm:ss'}}
       </p>
     </div>
   </li>
 </ul>
 
-<h2>Lisää oma viestisi</h2>
+<h2 ng-show="userLoggedIn">Lisää oma viestisi</h2>
 
-<form>
+<form ng-show="userLoggedIn">
   <div class="form-group">
     <label>Otsikko</label>
     <input type="text" class="form-control" ng-model="newTitle">

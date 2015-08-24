@@ -11,7 +11,7 @@ FoorumApp.controller('TopicsListController', function ($scope, $location, Api) {
             });
             
     $scope.addTopic = function()    {
-        Api.addTopic({"name": $scope.newTopicName, "description": $scope.newTopicDescription}).
+        Api.addTopic({name: $scope.newTopicName, description: $scope.newTopicDescription}).
                 success(function (data, status, headers, config) {
                     $location.path('/topics/' + data.id);
                 })

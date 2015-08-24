@@ -1,4 +1,5 @@
 FoorumApp.controller('ShowMessageController', function ($scope, $routeParams, Api) {
+   
     $scope.newReplyContent = "";
 
     Api.getMessage($routeParams.id).
@@ -10,7 +11,7 @@ FoorumApp.controller('ShowMessageController', function ($scope, $routeParams, Ap
             });
 
     $scope.addReply = function () {
-        Api.addMessage({"content": $scope.newReplyContent}, $scope.viesti.id).
+        Api.addReply({content: $scope.newReplyContent}, $scope.viesti.id).
                 success(function (data, status, headers, config) {
                     $scope.viesti.Replies.push(data);
                 })

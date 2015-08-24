@@ -11,7 +11,7 @@
 <ul class="media-list" ng-repeat="vastaus in viesti.Replies">
   <li class="media">
     <div class="media-body">
-      <h4 class="media-heading">Käyttäjätunnus tähän</h4>
+      <h4 class="media-heading">{{vastaus.User.username}}</h4>
 
       <p>
         {{vastaus.content}}
@@ -24,9 +24,9 @@
   </li>
 </ul>
 
-<h2>Lisää oma vastauksesi</h2>
+<h2 ng-show="userLoggedIn">Lisää oma vastauksesi</h2>
 
-<form>
+<form ng-show="userLoggedIn">
   <div class="form-group">
     <label>Vastaus</label>
     <textarea class="form-control" ng-model="newReplyContent"></textarea>

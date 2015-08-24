@@ -26,18 +26,21 @@ FoorumApp.service('Api', function ($http) {
     // Vastausten Api-funktiot
     this.addReply = function (reply, messageId) {
         // Lisää annettu vastaus lähettämällä POST-pyyntö toteuttamasi Api:n polkuun /messages/:messageId/reply
-        return $http.post('/messages/' + messageId + 'reply', reply);
+        return $http.post('/messages/' + messageId + '/reply', reply);
     }
 
     // Käyttäjän Api-funktiot
     this.login = function (user) {
         // Tarkista käyttäjän kirjautuminen lähettämällä POST-pyyntö toteuttamasi Api:n polkuun /users/authenticate
+        return $http.post('/users/authenticate', user);
     }
     this.register = function (user) {
         // Lisää annettu käyttäjä lähettämällä POST-pyyntö toteuttamasi Api:n polkuun /users
+        return $http.post('/users', user);
     }
     this.getUserLoggedIn = function () {
         // Hae kirjautunut käyttäjä toteuttamasi Api:n polusta /users/logged-in
+        return $http.get('/users/logged-in');
     }
     this.logout = function () {
         return $http.get('/users/logout');
